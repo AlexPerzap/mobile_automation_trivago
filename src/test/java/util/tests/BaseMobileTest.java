@@ -1,17 +1,18 @@
 package util.tests;
 
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import screens.DataPrivacyPolicyScreen;
+import screens.LandingScreen;
+import screens.WelcomeScreen;
+import util.ConfigCapabilities;
+
 import java.net.MalformedURLException;
 import java.net.URL;
-
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
-import screens.DashBoardScreen;
-import screens.TutorialScreen;
-import util.ConfigCapabilities;
 
 /**
  * Base class for Test classes.
@@ -21,12 +22,13 @@ import util.ConfigCapabilities;
  */
 public abstract class BaseMobileTest {
 
-	protected TutorialScreen tutorialScreen;
+	protected WelcomeScreen welcomeScreen;
 	public static AndroidDriver<AndroidElement> driver;
 	public Logger log = Logger.getLogger(BaseMobileTest.class);
 
 	public void setUpStartApp() {
-		tutorialScreen = new TutorialScreen(getDriver());
+		log.info("It launches the onboard screen");
+		welcomeScreen = new WelcomeScreen(getDriver());
 	}
 
 	/**
@@ -48,6 +50,11 @@ public abstract class BaseMobileTest {
 		setUpStartApp();
 	}
 
+	public LandingScreen initialProfileSetup() {
+		WelcomeScreen welcomeScreen = loadOnboardingScreen();
+		DataPrivacyPolicyScreen dataPrivacyPolicyScreen = welcomeScreen.chooseLanguage();
+		return dataPrivacyPolicyScreen.acceptDataPrivacyPolicies();
+	}
 	/**
 	 * Close the application after completing the test.
 	 * 
@@ -56,7 +63,9 @@ public abstract class BaseMobileTest {
 	 */
 	@AfterMethod(alwaysRun = true)
 	public void mobileApplicationEnd() {
-		// driver.quit();
+		//getDriver().removeApp("com.trivago");
+		//driver.quit();
+
 	}
 
 	/**
@@ -77,8 +86,8 @@ public abstract class BaseMobileTest {
 	 * 
 	 * @return SignUpOrLogInScreen
 	 */
-	protected DashBoardScreen loadDashBoardScreen() {
-		return tutorialScreen.handleAlerts();
+	protected WelcomeScreen loadOnboardingScreen() {
+		return welcomeScreen;
 	}
 
 }

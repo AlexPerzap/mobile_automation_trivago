@@ -5,18 +5,17 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.touch.offset.PointOption;
-import screens.AlertHandler;
-import util.CustomWait;
-
-import static java.lang.String.format;
-
-import java.time.Duration;
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import screens.AlertHandler;
+import util.CustomWait;
+
+import java.time.Duration;
+
+import static java.lang.String.format;
 
 
 // TODO: Auto-generated Javadoc
@@ -27,8 +26,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  *
  */
 public abstract class BaseScreen implements AlertHandler{
-	
+
 	protected CustomWait customWait = new CustomWait();
+
 	protected final AndroidDriver<AndroidElement> driver;
 	public Logger log = Logger.getLogger(BaseScreen.class);
 	private static final int PERCENT = 100;
@@ -37,7 +37,7 @@ public abstract class BaseScreen implements AlertHandler{
 	 * Constructor method for standard screens object.
 	 * 
 	 * @author Arley.Bolivar, Hans.Marquez
-	 * 
+	 *
 	 * @param driver
 	 *            : AndroidDriver
 	 */
@@ -45,6 +45,8 @@ public abstract class BaseScreen implements AlertHandler{
 		this.driver = driver;
 		PageFactory.initElements(new AppiumFieldDecorator(driver, Duration.ofSeconds(15)), this);
 	}
+
+
 
 	/**
 	 * Tab on back button.
