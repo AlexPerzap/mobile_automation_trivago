@@ -4,15 +4,19 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+
 import screens.DataPrivacyPolicyScreen;
 import screens.LandingScreen;
 import screens.WelcomeScreen;
 import util.ConfigCapabilities;
+import org.testng.annotations.*;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+
+
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 
 /**
  * Base class for Test classes.
@@ -65,7 +69,6 @@ public abstract class BaseMobileTest {
 	public void mobileApplicationEnd() {
 		//getDriver().removeApp("com.trivago");
 		//driver.quit();
-
 	}
 
 	/**
