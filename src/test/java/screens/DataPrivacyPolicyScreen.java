@@ -44,10 +44,10 @@ public class DataPrivacyPolicyScreen extends BaseScreen {
         return paragraph3.getText();
     }
 
-    public LandingScreen acceptDataPrivacyPolicies() {
+    public SearchScreen acceptDataPrivacyPolicies() {
         log.info("It accepts the privacy policies and it goes to the landing screen");
         click(acceptDataPrivacyPoliciesButton);
-        return new LandingScreen(driver);
+        return new SearchScreen(driver);
     }
 
 

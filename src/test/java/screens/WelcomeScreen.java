@@ -26,9 +26,8 @@ public class WelcomeScreen extends BaseScreen {
 
 
     public DataPrivacyPolicyScreen chooseLanguage(){
-
-        log.info("It chooses as language:");
         scrollToText("Colombia (Español)");
+        log.info("has been chosen as language.");;
         click(colombianSpanishOption);
         click(confirmLanguageButton);
         return new DataPrivacyPolicyScreen(driver);

@@ -5,9 +5,9 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import util.screens.BaseScreen;
 
-public class LandingScreen extends BaseScreen {
+public class SearchScreen extends BaseScreen {
 
-    public LandingScreen (AndroidDriver<AndroidElement> driver) {
+    public SearchScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
         //alertControl();
     }
@@ -19,9 +19,15 @@ public class LandingScreen extends BaseScreen {
     private AndroidElement editableSearchInput;
     @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Cartagena\").resourceIdMatches(\".*searchDestinationTitleTextView\")")
     private AndroidElement cartagenaOption;
-
     @AndroidFindBy(id = "com.trivago:id/fragmentHomeExpandedDealformSearchTextView")
     private AndroidElement searchButton;
+
+    @AndroidFindBy(id = "com.trivago:id/fragmentHotelSearchResultsExpandedDealformDestinationTextView")
+    private AndroidElement searchResultsInput;
+
+    //
+    @AndroidFindBy(id = "com.trivago:id/fragmentHotelSearchResultsExpandedDealformCalendarTextView")
+    private AndroidElement selectedDateRange;
 
     public AndroidElement getSearchInput() {
         return searchInput;
@@ -40,9 +46,13 @@ public class LandingScreen extends BaseScreen {
         return searchButton;
     }
 
+    public AndroidElement getSelectedDateRange() {
+        return selectedDateRange;
+    }
 
-
-
+    public AndroidElement getSearchResultsInput() {
+        return searchResultsInput;
+    }
 
     @Override
     public void alertControl() {}

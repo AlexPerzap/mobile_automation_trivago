@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import screens.DataPrivacyPolicyScreen;
-import screens.LandingScreen;
+import screens.SearchScreen;
 import screens.WelcomeScreen;
 import util.ConfigCapabilities;
 import org.testng.annotations.*;
@@ -14,9 +14,6 @@ import org.testng.annotations.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
 
 /**
  * Base class for Test classes.
@@ -31,7 +28,7 @@ public abstract class BaseMobileTest {
 	public Logger log = Logger.getLogger(BaseMobileTest.class);
 
 	public void setUpStartApp() {
-		log.info("It launches the onboard screen");
+		log.info("It launches the initial 'Welcome' screen");
 		welcomeScreen = new WelcomeScreen(getDriver());
 	}
 
@@ -54,9 +51,10 @@ public abstract class BaseMobileTest {
 		setUpStartApp();
 	}
 
-	public LandingScreen initialProfileSetup() {
+	public SearchScreen initialProfileSetup() {
 		WelcomeScreen welcomeScreen = loadOnboardingScreen();
 		DataPrivacyPolicyScreen dataPrivacyPolicyScreen = welcomeScreen.chooseLanguage();
+		//log.info("Initial profile is set up");
 		return dataPrivacyPolicyScreen.acceptDataPrivacyPolicies();
 	}
 	/**

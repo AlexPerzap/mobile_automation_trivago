@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import screens.DataPrivacyPolicyScreen;
-import screens.LandingScreen;
+import screens.SearchScreen;
 import screens.WelcomeScreen;
 import util.tests.BaseMobileTest;
 import util.tests.DataProvider;
@@ -21,8 +21,8 @@ public class DataPrivacyPolicyTests extends BaseMobileTest {
 		Assert.assertEquals(dataPrivacyPolicyScreen.getParagraph1(), paragraph1, "Paragraph 1 different from expected");
 		Assert.assertEquals(dataPrivacyPolicyScreen.getParagraph2(), paragraph2, "Paragraph 2 different from expected");
 		Assert.assertEquals(dataPrivacyPolicyScreen.getParagraph3(), paragraph3, "Paragraph 3 different from expected");
-		LandingScreen landingScreen = dataPrivacyPolicyScreen.acceptDataPrivacyPolicies();
-		Assert.assertEquals(landingScreen.isElementAvailable(landingScreen.getSearchButton()),true,"The was not directed to landing view");
+		SearchScreen searchScreen = dataPrivacyPolicyScreen.acceptDataPrivacyPolicies();
+		Assert.assertEquals(searchScreen.isElementAvailable(searchScreen.getSearchButton()),true,"The was not directed to landing view");
 		log.info("DataPrivacyPolicyContentTest finished");
 
 	}
