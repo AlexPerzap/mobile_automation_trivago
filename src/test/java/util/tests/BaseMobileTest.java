@@ -2,15 +2,13 @@ package util.tests;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-import screens.DashBoardScreen;
-import screens.TutorialScreen;
+import screens.WelcomeScreen;
 import util.ConfigCapabilities;
 
 /**
@@ -21,12 +19,12 @@ import util.ConfigCapabilities;
  */
 public abstract class BaseMobileTest {
 
-	protected TutorialScreen tutorialScreen;
+	protected WelcomeScreen welcomeScreen;
 	public static AndroidDriver<AndroidElement> driver;
 	public Logger log = Logger.getLogger(BaseMobileTest.class);
 
 	public void setUpStartApp() {
-		tutorialScreen = new TutorialScreen(getDriver());
+		welcomeScreen = new WelcomeScreen(getDriver());
 	}
 
 	/**
@@ -56,6 +54,7 @@ public abstract class BaseMobileTest {
 	 */
 	@AfterMethod(alwaysRun = true)
 	public void mobileApplicationEnd() {
+		//getDriver().removeApp("com.trivago");
 		// driver.quit();
 	}
 
@@ -77,8 +76,8 @@ public abstract class BaseMobileTest {
 	 * 
 	 * @return SignUpOrLogInScreen
 	 */
-	protected DashBoardScreen loadDashBoardScreen() {
-		return tutorialScreen.handleAlerts();
+	protected WelcomeScreen loadOnboardingScreen() {
+		return welcomeScreen;
 	}
 
 }

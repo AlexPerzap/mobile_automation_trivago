@@ -15,7 +15,7 @@ import util.screens.BaseScreen;
  *
  */
 
-public class TutorialScreen extends BaseScreen {
+public class welcomeScreen extends BaseScreen {
 
 	/**
 	 * Constructor method.

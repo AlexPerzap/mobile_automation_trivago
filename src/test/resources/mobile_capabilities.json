@@ -1,10 +1,12 @@
 {
 	"deviceName": "4200ada0def4b53b",
 	"platformName": "Android",
-	"platformVersion": "6",
-	"appPackage": "com.disney.wdpro.dlr",
-	"appActivity": "com.disney.wdpro.park.activities.LoaderActivity",
-	"app": "C:\\Users\\alexander.pz\\IdeaProjects\\AutomationMobile\\app/Disneyland.apk",
-	"automationName": "UiAutomator2"
+	"platformVersion": "10",
+	"appPackage": "com.trivago",
+	"appActivity": ".ft.main.frontend.MainActivity",
+	"app": "C:\\Users\\alexander.pz\\Documents\\trivago.apk",
+	"automationName": "UiAutomator2",
+	"no-reset": false,
+	"full-reset": true
 }
 

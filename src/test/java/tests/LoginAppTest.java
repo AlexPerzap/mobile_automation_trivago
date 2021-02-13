@@ -3,8 +3,8 @@ package tests;
 import org.springframework.context.annotation.Description;
 import org.testng.annotations.Test;
 
-import screens.DashBoardScreen;
 import screens.LoginScreen;
+import screens.WelcomeScreen;
 import util.tests.BaseMobileTest;
 
 public class LoginAppTest extends BaseMobileTest {
@@ -14,11 +14,11 @@ public class LoginAppTest extends BaseMobileTest {
 //	 */
 	@Description(value = "test of something ID:0001")
 	@Test()
-	public void testOfSomething() {
+	public void DataPrivacyPolicyContentTest() {
 		log.info("testOfSomething");
-		DashBoardScreen dashBoard = loadDashBoardScreen();
-		LoginScreen login = dashBoard.goToLoginScreen();
-		login.fillInLoginData("email", "password");	
+		WelcomeScreen welcomeScreen = loadOnboardingScreen();
+
+		log.info("funciona");
 	}
 
 	
