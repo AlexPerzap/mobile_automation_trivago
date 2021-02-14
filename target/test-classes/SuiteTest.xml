@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Trivago">
+
+<suite name="Trivago suite">
 	<!-- some parameter -->
-	<parameter name="name" value="value"></parameter>
-	<!-- some parameter -->
-	<parameter name="name" value="value"></parameter>
+	<parameter name="languageVariant" value="Colombia"></parameter>
+	<parameter name="destination" value="Cartagena"></parameter>
+	<parameter name="dateRange" value="1 de nov. - 5 de nov."></parameter>
 
 	<test name="Trivago Mobile App Tests">
-		<groups>
+		<!--<groups>
 			<run>
 				<include name="some group"></include>
 				<exclude name="some group"></exclude>
 			</run>
-		</groups>
+		</groups> -->
 		<classes>
-			<class name="pathOfTheTest"></class>
+			<class name="tests.DataPrivacyPolicyTests"></class>
+			<class name="tests.HotelSearchTests"></class>
+			<class name="tests.NavigationBarElementsTests"></class>
+			<class name="tests.DataPrivacyManagementTests"></class>
 		</classes>
 	</test>
 </suite> 

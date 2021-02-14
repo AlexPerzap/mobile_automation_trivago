@@ -4,12 +4,11 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
-import screens.DataPrivacyPolicyScreen;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import screens.SearchScreen;
 import screens.WelcomeScreen;
 import util.ConfigCapabilities;
-import org.testng.annotations.*;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -51,12 +50,6 @@ public abstract class BaseMobileTest {
 		setUpStartApp();
 	}
 
-	public SearchScreen initialProfileSetup() {
-		WelcomeScreen welcomeScreen = loadOnboardingScreen();
-		DataPrivacyPolicyScreen dataPrivacyPolicyScreen = welcomeScreen.chooseLanguage();
-		//log.info("Initial profile is set up");
-		return dataPrivacyPolicyScreen.acceptDataPrivacyPolicies();
-	}
 	/**
 	 * Close the application after completing the test.
 	 * 
@@ -65,8 +58,8 @@ public abstract class BaseMobileTest {
 	 */
 	@AfterMethod(alwaysRun = true)
 	public void mobileApplicationEnd() {
-		//getDriver().removeApp("com.trivago");
-		//driver.quit();
+		getDriver().removeApp("com.trivago");
+		driver.quit();
 	}
 
 	/**
@@ -87,6 +80,12 @@ public abstract class BaseMobileTest {
 	 * 
 	 * @return SignUpOrLogInScreen
 	 */
+
+
+	protected SearchScreen initialOnboarding(String country) {
+		return welcomeScreen.chooseLanguageVariantBasedOnCountry(country).acceptDataPrivacyPolicies();
+	}
+
 	protected WelcomeScreen loadOnboardingScreen() {
 		return welcomeScreen;
 	}

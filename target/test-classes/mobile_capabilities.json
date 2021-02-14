@@ -1,12 +1,14 @@
 {
-	"deviceName": "4200ada0def4b53b",
+
+
+	"deviceName": "emulator-5554",
 	"platformName": "Android",
-	"platformVersion": "10",
+	"platformVersion": "11",
 	"appPackage": "com.trivago",
-	"appActivity": ".ft.main.frontend.MainActivity",
+	"appActivity": "com.trivago.ft.main.frontend.MainActivity",
 	"app": "C:\\Users\\alexander.pz\\Documents\\trivago.apk",
 	"automationName": "UiAutomator2",
-	"no-reset": false,
-	"full-reset": true
+	"no-reset": false
+	//"full-reset": true
 }
 

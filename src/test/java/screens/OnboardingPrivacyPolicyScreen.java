@@ -5,11 +5,10 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import util.screens.BaseScreen;
 
-public class DataPrivacyPolicyScreen extends BaseScreen {
+public class OnboardingPrivacyPolicyScreen extends BaseScreen {
 
-    public DataPrivacyPolicyScreen(AndroidDriver<AndroidElement> driver) {
+    public OnboardingPrivacyPolicyScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
-        //alertControl();
     }
 
     @AndroidFindBy(id = "com.trivago:id/activityCookieConsentContentTitleTextView")
@@ -22,7 +21,6 @@ public class DataPrivacyPolicyScreen extends BaseScreen {
     private AndroidElement paragraph3;
     @AndroidFindBy(id = "com.trivago:id/activityCookieConsentContentAcceptButton")
     private AndroidElement acceptDataPrivacyPoliciesButton;
-
 
     public String getPageTitle() {
         log.info("It validates the Data Privacy Policy title text");
@@ -45,13 +43,9 @@ public class DataPrivacyPolicyScreen extends BaseScreen {
     }
 
     public SearchScreen acceptDataPrivacyPolicies() {
-        log.info("It accepts the privacy policies and it goes to the landing screen");
+        log.info("It accepts the privacy policies and it goes to the landing search screen.");
         click(acceptDataPrivacyPoliciesButton);
         return new SearchScreen(driver);
     }
 
-
-    @Override
-    public void alertControl() {
-    }
 }

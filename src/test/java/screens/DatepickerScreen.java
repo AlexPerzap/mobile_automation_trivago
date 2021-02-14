@@ -9,29 +9,27 @@ public class DatepickerScreen extends BaseScreen {
 
     public DatepickerScreen (AndroidDriver<AndroidElement> driver) {
         super(driver);
-        //alertControl();
     }
 
     @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Seleccionar fechas\")")
     private AndroidElement dateSelection;
     @AndroidFindBy(id = "com.trivago:id/activityDatesSelectionCalendarApplyTextView")
     private AndroidElement confirmarFechas_Button;
-
-    //@AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"noviembre\")")
-    //private AndroidElement noviembre;
-
+    @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"noviembre\")")
+    private AndroidElement noviembre;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ListView/android.widget.LinearLayout[2]/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout[2]")
-    private AndroidElement date1;
+    private AndroidElement startDate;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ListView/android.widget.LinearLayout[2]/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout[6]")
-    private AndroidElement date2;
+    private AndroidElement endDate;
 
     public void selectADateRange(){
         log.info("It selects the given date range");
-        scrollDown(6);
-        click(date1);
-        click(date2);
-        //click(confirmarFechas_Button);
-        //log.info("It validates the 'Confirmar fechas' button is enabled");
+        //scrollToText("nov");
+        //scroll("noviembre", 10);
+
+        scrollDown(5);
+        click(startDate);
+        click(endDate);
     }
 
     public SearchScreen confirmDateRangeSelected(){
@@ -40,8 +38,6 @@ public class DatepickerScreen extends BaseScreen {
         return new SearchScreen(driver);
     }
 
-
-
     public AndroidElement getDateSelection() {
         return dateSelection;
     }
@@ -49,7 +45,4 @@ public class DatepickerScreen extends BaseScreen {
     public AndroidElement getConfirmarFechas_Button() {
         return confirmarFechas_Button;
     }
-
-    @Override
-    public void alertControl(){}
 }

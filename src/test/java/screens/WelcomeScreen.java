@@ -8,36 +8,26 @@ import util.screens.BaseScreen;
 
 import static io.appium.java_client.pagefactory.LocatorGroupStrategy.ALL_POSSIBLE;
 
-
 public class WelcomeScreen extends BaseScreen {
 
     public WelcomeScreen(AndroidDriver<AndroidElement>driver) {
-
         super(driver);
-        //alertControl();
     }
 
     @HowToUseLocators(androidAutomation = ALL_POSSIBLE)
-    @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Colombia\")")
-    private AndroidElement colombianSpanishOption;
     @AndroidFindBy(id = "com.trivago:id/activityPlatformSelectionConfirmButton")
     private AndroidElement confirmLanguageButton;
 
-
-
-    public DataPrivacyPolicyScreen chooseLanguage(){
-        scrollToText("Colombia (Español)");
-        log.info("has been chosen as language.");;
-        click(colombianSpanishOption);
+    public OnboardingPrivacyPolicyScreen chooseLanguageVariantBasedOnCountry(String country){
+        scrollToText(country);
+        log.info("has been chosen as language.");
+        String automator = "new UiSelector().textContains(\"%s\")";
+        AndroidElement selectedCountry = driver.findElementByAndroidUIAutomator(String.format(automator, country));
+        click(selectedCountry);
         click(confirmLanguageButton);
-        return new DataPrivacyPolicyScreen(driver);
+        return new OnboardingPrivacyPolicyScreen(driver);
     }
-    
 
-
-    @Override
-    public void alertControl() {
-    }
 }
 
 

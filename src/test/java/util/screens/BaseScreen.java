@@ -10,7 +10,6 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import screens.AlertHandler;
 import util.CustomWait;
 
 import java.time.Duration;
@@ -25,7 +24,7 @@ import static java.lang.String.format;
  * @author Arley.Bolivar
  *
  */
-public abstract class BaseScreen implements AlertHandler{
+public abstract class BaseScreen{
 
 	protected CustomWait customWait = new CustomWait();
 
@@ -46,8 +45,6 @@ public abstract class BaseScreen implements AlertHandler{
 		PageFactory.initElements(new AppiumFieldDecorator(driver, Duration.ofSeconds(15)), this);
 	}
 
-
-
 	/**
 	 * Tab on back button.
 	 * 
@@ -58,7 +55,6 @@ public abstract class BaseScreen implements AlertHandler{
 		driver.navigate()
 		.back();
 	}
-
 	
 	/**
 	 * Scroll down (From Top to Bottom).
@@ -82,7 +78,6 @@ public abstract class BaseScreen implements AlertHandler{
 		String locator = "new UiScrollable(.scrollable(true)).scrollToBeginning(1)";
 		scroll(locator, swipes);
 	}
-
 
 	/**
 	 * Scroll.

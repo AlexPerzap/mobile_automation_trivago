@@ -9,9 +9,7 @@ public class SearchScreen extends BaseScreen {
 
     public SearchScreen(AndroidDriver<AndroidElement> driver) {
         super(driver);
-        //alertControl();
     }
-
 
     @AndroidFindBy(id = "com.trivago:id/fragmentHomeExpandedDealformDestinationTextView")
     private AndroidElement searchInput;
@@ -21,13 +19,18 @@ public class SearchScreen extends BaseScreen {
     private AndroidElement cartagenaOption;
     @AndroidFindBy(id = "com.trivago:id/fragmentHomeExpandedDealformSearchTextView")
     private AndroidElement searchButton;
-
     @AndroidFindBy(id = "com.trivago:id/fragmentHotelSearchResultsExpandedDealformDestinationTextView")
     private AndroidElement searchResultsInput;
-
-    //
     @AndroidFindBy(id = "com.trivago:id/fragmentHotelSearchResultsExpandedDealformCalendarTextView")
     private AndroidElement selectedDateRange;
+    @AndroidFindBy(id = "com.trivago:id/action_home")
+    private AndroidElement homeButton;
+    @AndroidFindBy(id = "com.trivago:id/action_discover")
+    private AndroidElement discoverButton;
+    @AndroidFindBy(id = "com.trivago:id/action_favourites")
+    private AndroidElement favoritesButton;
+    @AndroidFindBy(id = "com.trivago:id/action_settings")
+    private AndroidElement settingsButton;
 
     public AndroidElement getSearchInput() {
         return searchInput;
@@ -54,6 +57,23 @@ public class SearchScreen extends BaseScreen {
         return searchResultsInput;
     }
 
-    @Override
-    public void alertControl() {}
+    public boolean areAllFourBottomButtonsDisplayed(){
+        if(
+        isElementAvailable(homeButton) &
+        isElementAvailable(discoverButton) &
+        isElementAvailable(favoritesButton) &
+        isElementAvailable(settingsButton)
+        ){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public SettingsScreen goToSettings(){
+        click(settingsButton);
+        log.info("It goes to Settings screen.");
+        return new SettingsScreen(driver);
+    }
+
 }
