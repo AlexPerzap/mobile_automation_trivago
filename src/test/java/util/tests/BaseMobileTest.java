@@ -58,7 +58,7 @@ public abstract class BaseMobileTest {
 	 */
 	@AfterMethod(alwaysRun = true)
 	public void mobileApplicationEnd() {
-		getDriver().removeApp("com.trivago");
+		//getDriver().removeApp("com.trivago");
 		driver.quit();
 	}
 
