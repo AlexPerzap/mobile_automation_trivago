@@ -27,7 +27,6 @@ import static java.lang.String.format;
 public abstract class BaseScreen{
 
 	protected CustomWait customWait = new CustomWait();
-
 	protected final AndroidDriver<AndroidElement> driver;
 	public Logger log = Logger.getLogger(BaseScreen.class);
 	private static final int PERCENT = 100;
